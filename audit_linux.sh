@@ -103,6 +103,7 @@ ps auxwww > ps.out 2>/dev/null
 ps > ps-old.out 2>/dev/null
 # Interfaces
 ifconfig -a > ifconfig.out 2>/dev/null
+ip a > ip.out 2>/dev/null
 # List of packages
 RPM=`which rpm 2>/dev/null`
 test -n "$RPM" && rpm -qa > rpm.out 2>/dev/null
@@ -140,10 +141,13 @@ xauth list >xauth.out  2>/dev/null
 history > history.out  2>/dev/null
 # Open listeners
 netstat -an > netstat-an.out  2>/dev/null
+ss -an > ss-an.out 2>/dev/null
 # Routing
 netstat -rn > netstat-rn.out  2>/dev/null
+ip route show > ip-route.out 2>/dev/null
 # Process-sockets
 netstat -anp > netstat-anp.out  2>/dev/null
+ss -anp > ss-anp.out 2>/dev/null
 # Process-sockets 
 LSOF=`which lsof 2> /dev/null`
 test -n "$LSOF" && lsof -n >lsof.out 2>/dev/null
