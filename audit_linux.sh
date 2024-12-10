@@ -35,7 +35,7 @@ TARGET_DIR=/tmp
 #
 PATH="/sbin:/usr/sbin:/bin:/usr/bin:$PATH"
 HOSTNAME=`hostname`
-AUDIT_NAME="AUDIT-$HOSTNAME"
+AUDIT_NAME="AUDIT-$HOSTNAME-$(date +'%Y%m%d-%H%M%S')"
 AUDIT_DIR="$TARGET_DIR/$AUDIT_NAME"
 OUTFILE="$AUDIT_DIR.tar.gz"
 
