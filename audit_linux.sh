@@ -302,7 +302,7 @@ test -z "$QDBUS" && > dbus.out
                                  
 # Finish up, compress the output
 cd "$TARGET_DIR"
-tar czf "$OUTFILE" --options='gzip:compression-level=9' "$AUDIT_NAME"
+tar czf "$OUTFILE" "$AUDIT_NAME"
 echo "$OUTFILE" is finished, you may delete "$AUDIT_DIR" now.
 
 exit 0
