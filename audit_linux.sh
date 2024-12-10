@@ -260,7 +260,7 @@ find / -type f -perm -1 -exec getcap {} \; > find-cap.out 2>/dev/null
 
 # get kernel config
 modprobe configs
-tar cf config.tar /proc/config*
+tar cf config.tar /proc/config* 2> /dev/null
 
 # List directories
 /bin/ls -al / > ls-root.out 2>/dev/null
@@ -301,9 +301,8 @@ test -z "$QDBUS" && echo Error: qdbus is not installed, no DBUS information gath
 test -z "$QDBUS" && > dbus.out
                                  
 # Finish up, compress the output
-export GZIP=-9
 cd "$TARGET_DIR"
-tar czf "$OUTFILE" "$AUDIT_NAME"
+tar czf "$OUTFILE" --options='gzip:compression-level=9' "$AUDIT_NAME"
 echo "$OUTFILE" is finished, you may delete "$AUDIT_DIR" now.
 
 exit 0
